@@ -1,0 +1,21 @@
+# Server
+server/data.db*
+server/uploads/*
+!server/uploads/.gitkeep
+
+# Web
+web/node_modules/
+web/dist/
+
+# 운영 데이터 및 TLS 인증서
+/data/*
+!/data/certs/
+/data/certs/*
+!data/certs/.gitkeep
+.env
+.env.*
+!.env.example
+
+# OS
+.DS_Store
+*.swp

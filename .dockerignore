@@ -1,0 +1,13 @@
+.git
+.gitignore
+.cursor
+**/.cursor
+**/node_modules
+**/dist
+server/data.db
+server/uploads/*
+!server/uploads/.gitkeep
+data/
+*.md
+!README.md
+agent-transcripts

@@ -1,0 +1,21 @@
+services:
+  home-clip-board:
+    build: .
+    container_name: home-clip-board
+    ports:
+      - "127.0.0.1:18443:8443"
+    environment:
+      LISTEN_HOST: "0.0.0.0"
+      HTTPS_PORT: "8443"
+      DB_PATH: /app/data/data.db
+      UPLOAD_DIR: /app/data/uploads
+      STATIC_DIR: /app/web/dist
+      TLS_CERT: /app/tls/cert.pem
+      TLS_KEY: /app/tls/key.pem
+    volumes:
+      - clip-board-data:/app/data
+      - ./data/certs:/app/tls:ro
+    restart: unless-stopped
+
+volumes:
+  clip-board-data:
