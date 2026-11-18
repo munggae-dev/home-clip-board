@@ -15,8 +15,8 @@ import (
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/google/uuid"
-	"github.com/renew/home-clip-board/server/internal/model"
-	"github.com/renew/home-clip-board/server/internal/store"
+	"github.com/munggae-dev/home-clip-board/server/internal/model"
+	"github.com/munggae-dev/home-clip-board/server/internal/store"
 )
 
 func TestKeyedUploadRetries(t *testing.T) {

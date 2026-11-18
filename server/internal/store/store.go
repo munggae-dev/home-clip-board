@@ -11,7 +11,7 @@ import (
 	"time"
 
 	"github.com/google/uuid"
-	"github.com/renew/home-clip-board/server/internal/model"
+	"github.com/munggae-dev/home-clip-board/server/internal/model"
 	_ "modernc.org/sqlite"
 )
 

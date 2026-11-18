@@ -16,8 +16,8 @@ import (
 	"time"
 
 	"github.com/gofiber/fiber/v2"
-	"github.com/renew/home-clip-board/server/internal/model"
-	"github.com/renew/home-clip-board/server/internal/store"
+	"github.com/munggae-dev/home-clip-board/server/internal/model"
+	"github.com/munggae-dev/home-clip-board/server/internal/store"
 	"github.com/valyala/fasthttp/fasthttputil"
 )
 

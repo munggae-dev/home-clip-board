@@ -9,7 +9,7 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/renew/home-clip-board/server/internal/store"
+	"github.com/munggae-dev/home-clip-board/server/internal/store"
 	"github.com/valyala/fasthttp"
 )
 
@@ -87,7 +87,7 @@ func TestBoardCannotBeFramed(t *testing.T) {
 	app := newApp(nil)
 	registerStatic(app, dir)
 	for _, path := range []string{"/", "/settings"} {
-		res, err := app.Test(httptest.NewRequest("GET", "http://localhost"+path, nil))
+		res, err := app.Test(httptest.NewRequest("GET", path, nil))
 		if err != nil {
 			t.Fatal(err)
 		}
@@ -113,7 +113,7 @@ func TestReleaseMetadataResponse(t *testing.T) {
 			app := newApp(nil)
 			registerStatic(app, dir)
 			for _, method := range []string{"GET", "HEAD"} {
-				res, err := app.Test(httptest.NewRequest(method, "http://localhost/"+tc.filename, nil))
+				res, err := app.Test(httptest.NewRequest(method, "/"+tc.filename, nil))
 				if err != nil {
 					t.Fatal(err)
 				}
@@ -140,7 +140,7 @@ func TestMissingVersionDoesNotReturnAppShell(t *testing.T) {
 	}
 	app := newApp(nil)
 	registerStatic(app, dir)
-	res, err := app.Test(httptest.NewRequest("GET", "http://localhost/version.json", nil))
+	res, err := app.Test(httptest.NewRequest("GET", "/version.json", nil))
 	if err != nil {
 		t.Fatal(err)
 	}

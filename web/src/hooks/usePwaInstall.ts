@@ -17,23 +17,15 @@ function isIos(): boolean {
   return /iphone|ipad|ipod/i.test(navigator.userAgent)
 }
 
-function isSecureContext(): boolean {
-  return window.isSecureContext
-}
-
 export function usePwaInstall() {
   const [standalone, setStandalone] = useState(isStandalone)
   const [canInstall, setCanInstall] = useState(false)
   const [deferredPrompt, setDeferredPrompt] =
     useState<BeforeInstallPromptEvent | null>(null)
-  const [ios, setIos] = useState(false)
-  const [secure, setSecure] = useState(true)
+  const ios = isIos()
+  const secure = window.isSecureContext
 
   useEffect(() => {
-    setStandalone(isStandalone())
-    setIos(isIos())
-    setSecure(isSecureContext())
-
     const onBip = (e: Event) => {
       e.preventDefault()
       setDeferredPrompt(e as BeforeInstallPromptEvent)

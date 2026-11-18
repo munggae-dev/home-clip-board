@@ -12,13 +12,14 @@ function sharedData<T>(id: string): T | undefined {
 }
 
 function PhotoPreview({ file }: { file: File }) {
-  const [url, setUrl] = useState('')
+  const image = useRef<HTMLImageElement>(null)
   useEffect(() => {
+    if (!image.current) return
     const objectUrl = URL.createObjectURL(file)
-    setUrl(objectUrl)
+    image.current.src = objectUrl
     return () => URL.revokeObjectURL(objectUrl)
   }, [file])
-  return url ? <img src={url} className="share-thumbnail" alt="" loading="lazy" decoding="async" /> : null
+  return <img ref={image} className="share-thumbnail" alt="" loading="lazy" decoding="async" />
 }
 
 export default function Share() {

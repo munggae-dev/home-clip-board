@@ -9,8 +9,8 @@ import (
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/logger"
-	"github.com/renew/home-clip-board/server/internal/handler"
-	"github.com/renew/home-clip-board/server/internal/store"
+	"github.com/munggae-dev/home-clip-board/server/internal/handler"
+	"github.com/munggae-dev/home-clip-board/server/internal/store"
 )
 
 func main() {
